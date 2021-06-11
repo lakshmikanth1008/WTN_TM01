@@ -6,17 +6,9 @@ import com.wipro.eb.service.ConnectionService;
 
 public class EBMain {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc=new Scanner(System.in);
-		int pr=sc.nextInt();
-		int cr=sc.nextInt();
-		String ct=sc.next();
-		ConnectionService cs=new ConnectionService();
-		System.out.println(cs.generateBill(pr,cr,ct));
-		
-		
-
+	public static void main(String a[])
+	{
+	System.out.println(new ConnectionService().generateBill(130,100,"Commercial"));
 	}
 
 }

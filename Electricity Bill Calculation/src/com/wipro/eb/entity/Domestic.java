@@ -12,30 +12,30 @@ public class Domestic extends Connection
 	public float computeBill() {
 		// TODO Auto-generated method stub
 		int p=currentReading-previousReading;
-		double d = 0;
-		if(p>0 && p<=50)
+		float d = 0.0f;
+		if(p>100)
 		{
-			d=(p*2.3);
+			d=(50*slabs[0]+50*slabs[1]+(p-100)*slabs[2]);
 		}
-		else if(p>50 && p<=100)
+		else if(p>50)
 		{
-			d=(p*(2.3+4.2));
-		}
-		else if(p>100)
-		{
-			d=(p*(2.3+4.2+5.5));
-		}
-		if(d>=10000)
-		{
-			return (float) (d+(d*0.09));
-		}
-		else if(d>=5000)
-		{
-			return (float) (d+(d*0.06));
+			d=50*slabs[0]+(p-50)*slabs[1];
 		}
 		else
 		{
-			return (float) (d+(d*0.02));
+			d=(p*slabs[0]);
+		}
+		if(d>=10000)
+		{
+			return d*1.09f;
+		}
+		else if(d>=5000)
+		{
+			return d*1.06f;
+		}
+		else
+		{
+			return d*1.02f;
 		}
 	}
 	
